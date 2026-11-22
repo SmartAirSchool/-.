@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Умный монитор воздуха для школы</title>
+    <style>
+        /* Базовые стили и переменные */
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #00d2ff;
+            --dark-bg: #1a1a2e;
+            --light-bg: #f8f9fa;
+            --text-dark: #333;
+            --text-light: #fff;
+            --danger: #e63946;
+            --success: #2a9d8f;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--light-bg);
+        }
+
+        /* Навигация */
+        header {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        header h1 { margin: 0; font-size: 1.5rem; letter-spacing: 1px; }
+        nav a { color: var(--text-light); text-decoration: none; margin-left: 20px; font-weight: bold; }
+        nav a:hover { color: var(--secondary-color); }
+
+        /* Главный баннер (Hero Section) */
+        .hero {
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #16213e 100%);
+            color: var(--text-light);
+            padding: 6rem 5%;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--secondary-color), var(--primary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p { font-size: 1.2rem; max-width: 800px; margin: 0 auto 2rem auto; color: #ccc; }
+
+        /* Секции */
+        section { padding: 4rem 5%; }
+        .section-title { text-align: center; font-size: 2.2rem; margin-bottom: 3rem; color: var(--dark-bg); }
+
+        /* Блок Актуальности */
+        .problem-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .problem-text h3 { color: var(--danger); font-size: 1.8rem; margin-top: 0; }
+        .problem-text p { font-size: 1.1rem; margin-bottom: 1.5rem; }
+
+        .highlight-box {
+            background-color: #fff;
+            border-left: 5px solid var(--danger);
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 1.5rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Блок Решения */
+        .solution-bg { background-color: #fff; }
+
+        .solution-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .solution-text h3 { color: var(--primary-color); font-size: 1.8rem; margin-top: 0; }
+
+        .features-list { list-style: none; padding: 0; }
+        .features-list li {
+            background: #f1f8ff;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+        }
+        .features-list li::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-right: 15px;
+        }
+
+        /* СТИЛИ ДЛЯ ВАШИХ КАРТИНОК */
+        /* Убрали тени и рамки, оставили только закругление углов */
+        .project-image {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            display: block;
+        }
+/* Подвал */
+        footer {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* Адаптивность для телефонов */
+        @media (max-width: 768px) {
+            .problem-grid, .solution-grid { grid-template-columns: 1fr; }
+            .hero h2 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Навигация -->
+    <header>
+        <h1>SmartAirSchool</h1>
+        <nav>
+            <a href="#problem">Проблема</a>
+            <a href="#solution">Решение</a>
+        </nav>
+    </header>
+
+    <!-- Главный экран -->
+    <div class="hero">
+        <h2>Дышите свободно — учитесь легко!</h2>
+        <p>Автоматизированная система мониторинга микроклимата для создания здоровой и продуктивной среды в классах нашей школы.</p>
+    </div>
+
+    <!-- Раздел: В чем проблема? (Актуальность) -->
+    <section id="problem">
+        <h2 class="section-title">Почему это актуально?</h2>
+
+        <div class="problem-grid">
+            <div class="problem-text">
+                <div class="highlight-box">
+                    <h3>Убийца мотивации — духота</h3>
+                    <p>Вы замечали, как к середине урока клонит в сон, а мысли разбегаются? Это не лень. В закрытом классе за 40 минут урока уровень углекислого газа (CO₂) превышает норму в 2-3 раза.</p>
+                </div>
+                <p>Нехватка кислорода напрямую влияет на мозг: снижается концентрация внимания, падает скорость мышления и пропадает желание учиться. Ученик физически не может усваивать материал в «спертом» воздухе.</p>
+                <p>Согласно нормам СанПиН, уровень CO₂ в классе не должен превышать <strong>800–1000 ppm</strong>. Однако традиционные проветривания проводятся несвоевременно, так как учитель занят уроком и не может постоянно следить за воздухом.</p>
+            </div>
+
+            <!-- ВАША КАРТИНКА 1 (Проблема) -->
+            <!-- Вставьте сюда имя вашего файла вместо problem.jpg -->
+            <img src="sug.jpg" alt="Проблема духоты в классе" class="project-image">
+
+        </div>
+    </section>
+
+    <!-- Раздел: Наше решение -->
+    <section id="solution" class="solution-bg">
+        <h2 class="section-title">Наше решение</h2>
+
+        <div class="solution-grid">
+
+            <!-- ВАША КАРТИНКА 2 (Решение) -->
+            <!-- Вставьте сюда имя вашего файла вместо device.jpg -->
+            <img src="6f35e9f8-ef2d-4abd-bb67-ddd15a931fd9.jpg" alt="Умный монитор воздуха" class="project-image">
+
+            <div class="solution-text">
+                <h3>Умный монитор микроклимата</h3>
+                <p>Мы разработали компактное и недорогое устройство, которое берет контроль над воздухом на себя. Оно не просто пищит, а дает учителю конкретные и понятные советы.</p>
+
+                <ul class="features-list">
+                    <li><strong>Три датчика в одном:</strong> Высокоточный сенсор SCD40 измеряет CO₂, температуру и влажность каждые 5 секунд.</li>
+                    <li><strong>Деликатное оповещение:</strong> Один короткий звуковой сигнал при превышении нормы, чтобы не отвлекать от урока. Повтор — только через 5 минут.</li>
+                    <li><strong>Умные советы на экране:</strong> Устройство подскажет: «Душно, откройте окно» или «Воздух свежий, но прохладно, проверьте отопление».</li>
+                    <li><strong>Безопасность:</strong> Мы отказались от автоматического открывания окон. Учитель сам решает, когда проветривать класс.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer>
+        <p>Проект учеников 10 Е класса | 2026 год</p>
+        <p>Технологии: ESP32, Sensirion SCD40, Arduino IDE</p>
+    </footer>
+
+</body>
+</html>
